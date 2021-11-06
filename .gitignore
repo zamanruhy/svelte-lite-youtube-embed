@@ -1,0 +1,9 @@
+.DS_Store
+*.log
+/.svelte-kit
+/build
+/package
+cypress/screenshots
+cypress/videos
+node_modules
+storybook-static
