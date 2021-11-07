@@ -12,10 +12,12 @@ npm install svelte-lite-youtube-embed
 
 ## Usage
 
-```js
-import LiteYouTube from 'svelte-lite-youtube-embed'
+```svelte
+<script>
+  import LiteYouTube from 'svelte-lite-youtube-embed'
+</script>
 
-;<LiteYouTube
+<LiteYouTube
   videoId="AdNJ3fydeao"
   playLabel="Play: Rich Harris - Rethinking reactivity"
   params="controls=0&start=10"
