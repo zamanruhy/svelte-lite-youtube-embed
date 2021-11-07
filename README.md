@@ -1,8 +1,8 @@
 # Svelte Lite YouTube Embed
 
-<strong>Port of Paul Irish's
+**Port of Paul Irish's
 [Lite YouTube Embed](https://github.com/paulirish/lite-youtube-embed) to
-Svelte.</strong>
+Svelte.**
 
 ## Install
 
