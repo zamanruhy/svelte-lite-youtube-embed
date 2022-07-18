@@ -7,10 +7,10 @@
   export let posterLoading = 'lazy'
   export let noCookie = true
 
-  let activated = false
-  let hovered = false
+  let iframe = false
+  let preconnected = false
 
-  $: videoId, (activated = false)
+  $: videoId, (iframe = false)
   $: computedParams = (() => {
     const p = new URLSearchParams(params)
     p.append('autoplay', '1')
@@ -27,7 +27,7 @@
 
 <svelte:head>
   <link rel="preconnect" href="https://i.ytimg.com" />
-  {#if hovered}
+  {#if preconnected}
     <link rel="preconnect" href={ytUrl} />
     <link rel="preconnect" href="https://www.google.com" />
     <link rel="preconnect" href="https://static.doubleclick.net" />
@@ -37,9 +37,9 @@
 
 <div
   class="lite-youtube"
-  class:lite-youtube-activated={activated}
-  on:pointerover|once={() => (hovered = true)}
-  on:click={() => (activated = true)}
+  class:lite-youtube-activated={iframe}
+  on:pointerover|once={() => (preconnected = true)}
+  on:click={() => (iframe = true)}
 >
   {#key videoId}
     <picture>
@@ -65,7 +65,7 @@
     class="lite-youtube-playbtn"
     aria-label="{videoPlay}: {videoTitle}"
   />
-  {#if activated}
+  {#if iframe}
     <iframe
       width="560"
       height="315"
