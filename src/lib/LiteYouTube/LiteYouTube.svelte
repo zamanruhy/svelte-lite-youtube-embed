@@ -2,6 +2,7 @@
   export let videoId
   export let playLabel = 'Play'
   export let params = ''
+  export let posterQuality = 'hqdefault'
 
   let activated = false
   let hovered = false
@@ -35,12 +36,12 @@
   {#key videoId}
     <picture>
       <source
-        srcset="https://i.ytimg.com/vi_webp/{videoId}/hqdefault.webp"
+        srcset="https://i.ytimg.com/vi_webp/{videoId}/{posterQuality}.webp"
         type="image/webp"
       />
       <img
         class="lite-youtube-poster"
-        src="https://i.ytimg.com/vi/{videoId}/hqdefault.jpg"
+        src="https://i.ytimg.com/vi/{videoId}/{posterQuality}.jpg"
         alt={playLabel}
       />
     </picture>
