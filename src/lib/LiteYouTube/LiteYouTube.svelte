@@ -1,6 +1,7 @@
 <script>
   export let videoId
-  export let playLabel = 'Play'
+  export let videoPlay = 'Play'
+  export let videoTitle = 'Video'
   export let params = ''
   export let posterQuality = 'hqdefault'
   export let posterLoading = 'lazy'
@@ -29,8 +30,6 @@
   {#if hovered}
     <link rel="preconnect" href={ytUrl} />
     <link rel="preconnect" href="https://www.google.com" />
-    <!-- Not certain if these ad related domains are in the critical path.
-      Could verify with domain-specific throttling. -->
     <link rel="preconnect" href="https://static.doubleclick.net" />
     <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
   {/if}
@@ -55,18 +54,22 @@
       <img
         class="lite-youtube-poster"
         src="https://i.ytimg.com/vi/{videoId}/{posterQuality}.jpg"
-        alt={playLabel}
+        alt="{videoPlay}: {videoTitle}"
         referrerpolicy="origin"
         loading={posterLoading}
       />
     </picture>
   {/key}
-  <button type="button" class="lite-youtube-playbtn" aria-label={playLabel} />
+  <button
+    type="button"
+    class="lite-youtube-playbtn"
+    aria-label="{videoPlay}: {videoTitle}"
+  />
   {#if activated}
     <iframe
       width="560"
       height="315"
-      title={playLabel}
+      title={videoTitle}
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
       src="{ytUrl}/embed/{encodeURIComponent(videoId)}?{computedParams}"
