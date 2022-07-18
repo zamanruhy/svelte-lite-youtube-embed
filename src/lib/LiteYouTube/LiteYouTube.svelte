@@ -1,4 +1,6 @@
 <script>
+  import { createEventDispatcher } from 'svelte'
+
   export let videoId
   export let videoPlay = 'Play'
   export let videoTitle = 'Video'
@@ -9,6 +11,8 @@
 
   let iframe = false
   let preconnected = false
+  let dispatch = createEventDispatcher()
+  let iframeEl
 
   $: videoId, (iframe = false)
   $: computedParams = (() => {
@@ -19,6 +23,7 @@
   $: ytUrl = noCookie
     ? 'https://www.youtube-nocookie.com'
     : 'https://www.youtube.com'
+  $: iframeEl && dispatch('iframeLoaded', { iframe: iframeEl })
 
   function focus(node) {
     node.focus()
@@ -73,6 +78,7 @@
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
       src="{ytUrl}/embed/{encodeURIComponent(videoId)}?{computedParams}"
+      bind:this={iframeEl}
       use:focus
     />
   {/if}
