@@ -3,6 +3,7 @@
   export let playLabel = 'Play'
   export let params = ''
   export let posterQuality = 'hqdefault'
+  export let posterLoading = 'lazy'
 
   let activated = false
   let hovered = false
@@ -39,10 +40,16 @@
         srcset="https://i.ytimg.com/vi_webp/{videoId}/{posterQuality}.webp"
         type="image/webp"
       />
+      <source
+        src="https://i.ytimg.com/vi/{videoId}/{posterQuality}.jpg"
+        type="image/jpeg"
+      />
       <img
         class="lite-youtube-poster"
         src="https://i.ytimg.com/vi/{videoId}/{posterQuality}.jpg"
         alt={playLabel}
+        referrerpolicy="origin"
+        loading={posterLoading}
       />
     </picture>
   {/key}
