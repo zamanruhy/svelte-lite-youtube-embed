@@ -4,6 +4,7 @@
   export let params = ''
   export let posterQuality = 'hqdefault'
   export let posterLoading = 'lazy'
+  export let noCookie = true
 
   let activated = false
   let hovered = false
@@ -14,6 +15,9 @@
     p.append('autoplay', '1')
     return p.toString()
   })()
+  $: ytUrl = noCookie
+    ? 'https://www.youtube-nocookie.com'
+    : 'https://www.youtube.com'
 
   function focus(node) {
     node.focus()
@@ -23,7 +27,7 @@
 <svelte:head>
   <link rel="preconnect" href="https://i.ytimg.com" />
   {#if hovered}
-    <link rel="preconnect" href="https://www.youtube-nocookie.com" />
+    <link rel="preconnect" href={ytUrl} />
     <link rel="preconnect" href="https://www.google.com" />
   {/if}
 </svelte:head>
@@ -61,9 +65,7 @@
       title={playLabel}
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
-      src="https://www.youtube-nocookie.com/embed/{encodeURIComponent(
-        videoId
-      )}?{computedParams}"
+      src="{ytUrl}/embed/{encodeURIComponent(videoId)}?{computedParams}"
       use:focus
     />
   {/if}
