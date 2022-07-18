@@ -29,6 +29,10 @@
   {#if hovered}
     <link rel="preconnect" href={ytUrl} />
     <link rel="preconnect" href="https://www.google.com" />
+    <!-- Not certain if these ad related domains are in the critical path.
+      Could verify with domain-specific throttling. -->
+    <link rel="preconnect" href="https://static.doubleclick.net" />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
   {/if}
 </svelte:head>
 
