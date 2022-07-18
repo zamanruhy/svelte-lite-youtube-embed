@@ -30,6 +30,7 @@
     "lint-staged": "11.2.6",
     "prettier": "2.4.1",
     "prettier-plugin-svelte": "2.4.0",
+    "standard-version": "^9.5.0",
     "start-server-and-test": "1.14.0",
     "svelte": "3.44.1",
     "svelte-check": "2.2.8",
@@ -74,7 +75,8 @@
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
     "storybook": "start-storybook -p 6006",
-    "test": "start-server-and-test storybook http://localhost:6006 cy:run"
+    "test": "start-server-and-test storybook http://localhost:6006 cy:run",
+    "release": "standard-version"
   },
   "type": "module",
   "version": "0.0.3"
