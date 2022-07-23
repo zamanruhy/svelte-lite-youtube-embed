@@ -8,21 +8,24 @@
   export let posterQuality = 'hqdefault'
   export let posterLoading = 'lazy'
   export let noCookie = true
+  export let playlistId
 
   let iframe = false
   let preconnected = false
   let dispatch = createEventDispatcher()
   let iframeEl
 
-  $: videoId, (iframe = false)
-  $: computedParams = (() => {
-    const p = new URLSearchParams(params)
-    p.append('autoplay', '1')
-    return p.toString()
-  })()
+  $: videoId, playlistId, (iframe = false)
   $: ytUrl = noCookie
     ? 'https://www.youtube-nocookie.com'
     : 'https://www.youtube.com'
+  $: iframeSrc = !playlistId
+    ? `${ytUrl}/embed/${encodeURIComponent(
+        videoId
+      )}?autoplay=1&state=1&${params}`
+    : `${ytUrl}/embed/videoseries?autoplay=1&list=${encodeURIComponent(
+        playlistId
+      )}&${params}`
   $: iframeEl && dispatch('iframeLoaded', { iframe: iframeEl })
 
   function focus(node) {
@@ -77,7 +80,7 @@
       title={videoTitle}
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
-      src="{ytUrl}/embed/{encodeURIComponent(videoId)}?{computedParams}"
+      src={iframeSrc}
       bind:this={iframeEl}
       use:focus
     />

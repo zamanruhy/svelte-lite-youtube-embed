@@ -9,8 +9,8 @@
   component={LiteYouTube}
   argTypes={{
     videoId: { control: 'text' },
-    playLabel: { control: 'text' },
-    params: { control: 'text' }
+    videoTitle: { control: 'text' },
+    playlistId: { control: 'text' }
   }}
 />
 
@@ -19,18 +19,18 @@
 </Template>
 
 <Story
-  name="Without params"
+  name="Basic"
   args={{
-    videoId: 'ogfYd705cRs',
-    playLabel: `Play: Keynote (Google I/O '18)`
+    videoId: 'AdNJ3fydeao',
+    videoTitle: 'Rich Harris - Rethinking reactivity'
   }}
 />
 
 <Story
-  name="With params"
+  name="With playlist"
   args={{
-    videoId: 'AdNJ3fydeao',
-    playLabel: 'Play: Rich Harris - Rethinking reactivity',
-    params: 'controls=0&start=10&end=30&modestbranding=2&rel=0&enablejsapi=1'
+    videoId: 'VLrYOji75Vc',
+    videoTitle: 'Speed at Scale',
+    playlistId: 'PL-G5r6j4GptH5JTveoLTVqpp7w2oc27Q9'
   }}
 />

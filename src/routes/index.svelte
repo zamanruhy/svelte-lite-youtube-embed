@@ -2,12 +2,18 @@
   import LiteYouTube from '$lib'
 </script>
 
-<LiteYouTube videoId="ogfYd705cRs" playLabel="Play: Keynote (Google I/O '18)" />
+<LiteYouTube
+  videoId="AdNJ3fydeao"
+  videoTitle="Rich Harris - Rethinking reactivity"
+/>
 
 <hr />
 
 <LiteYouTube
-  videoId="AdNJ3fydeao"
-  playLabel="Play: Rich Harris - Rethinking reactivity"
-  params="controls=0&start=10&end=30&modestbranding=2&rel=0&enablejsapi=1"
+  videoId="VLrYOji75Vc"
+  videoTitle="Speed at Scale"
+  playlistId="PL-G5r6j4GptH5JTveoLTVqpp7w2oc27Q9"
+  params="enablejsapi=1"
+  posterQuality="hqdefault"
+  on:iframeLoaded={(e) => console.log(e.detail.iframe)}
 />
