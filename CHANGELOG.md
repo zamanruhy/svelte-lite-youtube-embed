@@ -1,8 +1,13 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See
-[standard-version](https://github.com/conventional-changelog/standard-version)
-for commit guidelines.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [1.0.1](https://github.com/zamanruhy/svelte-lite-youtube-embed/compare/v1.0.0...v1.0.1) (2022-07-23)
+
+
+### Bug Fixes
+
+* remove deprecated config.kit.target option ([07a287d](https://github.com/zamanruhy/svelte-lite-youtube-embed/commit/07a287df41e3429f9fcdfd67909a2884a4133120))
 
 ## [1.0.0](https://github.com/zamanruhy/svelte-lite-youtube-embed/compare/v0.1.0...v1.0.0) (2022-07-23)
 
