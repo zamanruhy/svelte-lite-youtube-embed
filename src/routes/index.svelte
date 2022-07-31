@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import LiteYouTube from '$lib'
 </script>
 
