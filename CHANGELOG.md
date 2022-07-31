@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/zamanruhy/svelte-lite-youtube-embed/compare/v1.0.1...v1.1.0) (2022-07-31)
+
+
+### Features
+
+* add typescript ([019a93f](https://github.com/zamanruhy/svelte-lite-youtube-embed/commit/019a93fd66594492fc2e10969d806573d50c7261))
+
 ### [1.0.1](https://github.com/zamanruhy/svelte-lite-youtube-embed/compare/v1.0.0...v1.0.1) (2022-07-23)
 
 
