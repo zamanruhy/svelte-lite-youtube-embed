@@ -1,19 +1,41 @@
-<script>
+<script lang="ts" context="module">
+  // interface EventDetails {
+  //   iframeLoaded: { iframe: HTMLIFrameElement }
+  // }
+  // type $$EVENTS = {
+  //   [K in keyof EventDetails]: CustomEvent<EventDetails[K]> & { type: K }
+  // }
+</script>
+
+<script lang="ts">
   import { createEventDispatcher } from 'svelte'
 
-  export let videoId
-  export let videoPlay = 'Play'
-  export let videoTitle = 'Video'
-  export let params = ''
-  export let posterQuality = 'hqdefault'
-  export let posterLoading = 'lazy'
-  export let noCookie = true
-  export let playlistId
+  type PosterQualityProp =
+    | 'default'
+    | 'mqdefault'
+    | 'hqdefault'
+    | 'sddefault'
+    | 'maxresdefault'
 
-  let iframe = false
-  let preconnected = false
-  let dispatch = createEventDispatcher()
-  let iframeEl
+  type PosterLoadingProp = 'lazy' | 'eager'
+
+  interface EventDetails {
+    iframeLoaded: { iframe: HTMLIFrameElement }
+  }
+
+  export let videoId: string
+  export let videoPlay: string = 'Play'
+  export let videoTitle: string = 'Video'
+  export let params: string = ''
+  export let posterQuality: PosterQualityProp = 'hqdefault'
+  export let posterLoading: PosterLoadingProp = 'lazy'
+  export let noCookie: boolean = true
+  export let playlistId: string = ''
+
+  let iframe: boolean = false
+  let preconnected: boolean = false
+  let dispatch = createEventDispatcher<EventDetails>()
+  let iframeEl: HTMLIFrameElement
 
   $: videoId, playlistId, (iframe = false)
   $: ytUrl = noCookie
@@ -28,7 +50,7 @@
       )}&${params}`
   $: iframeEl && dispatch('iframeLoaded', { iframe: iframeEl })
 
-  function focus(node) {
+  function focus(node: HTMLElement) {
     node.focus()
   }
 </script>
