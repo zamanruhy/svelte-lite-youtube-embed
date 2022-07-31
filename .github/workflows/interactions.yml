@@ -32,7 +32,7 @@ jobs:
           version: ^7.0.0
           run_install: |
             - recursive: true
-              args: [--frozen-lockfile]
+              args: [--frozen-lockfile, --strict-peer-dependencies]
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
